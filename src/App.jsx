@@ -15,7 +15,7 @@ import CTA from "./Components/CTA";
 import { useEffect, useState } from "react";
 import Loader from "./Components/Loader";
 import SocialSidebar from "./Components/SocialSideBar";
-import BackToTop from "./Components/BackToTop";
+// import BackToTop from "./Components/BackToTop";
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
       {/* <Navbar /> */}
       <SocialSidebar />
       <Hero />
-      <BackToTop />
+      {/* <BackToTop /> */}
       {/* <Stats /> */}
       <About />           
       <Skills />
