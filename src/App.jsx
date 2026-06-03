@@ -37,18 +37,18 @@ function App() {
       {/* <ScrollProgress />
       {/* <Cursor /> */}
       {/* <Navbar /> */}
-      <SocialSidebar />
-      <Hero />
+      {/* <SocialSidebar /> */}
+      {/* <Hero /> */}
       {/* <BackToTop /> */}
       {/* <Stats /> */}
-      <About />           
-      <Skills />
-      <Timeline />
-      <Projects />
-      <CTA />
+      {/* <About />            */}
+      {/* <Skills /> */}
+      {/* <Timeline /> */}
+      {/* <Projects /> */}
+      {/* <CTA /> */}
       {/* <Contact /> */}
-      <ToastContainer position="top-right" autoClose={3000} />
-      <Footer /> */}
+      {/* <ToastContainer position="top-right" autoClose={3000} /> */}
+      {/* <Footer /> */} */}
     </div>
   );
 }
