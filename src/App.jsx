@@ -11,7 +11,7 @@ import ScrollProgress from "./Components/ScrollProgress";
 // import Stats from "./Components/Stats";
 import Timeline from "./Components/Timeline";
 // import Cursor from "./Components/Cursor";
-// import CTA from "./Components/CTA";
+import CTA from "./Components/CTA";
 import { useEffect, useState } from "react";
 import Loader from "./Components/Loader";
 import SocialSidebar from "./Components/SocialSideBar";
@@ -45,7 +45,7 @@ function App() {
       {/* <Skills />  */}
       <Timeline /> 
       <Projects />
-      {/* <CTA /> */}
+      <CTA /> 
       {/* <Contact />  */}
       <ToastContainer position="top-right" autoClose={3000} /> 
       {/* <Footer />  */}
