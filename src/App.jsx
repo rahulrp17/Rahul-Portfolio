@@ -7,7 +7,7 @@ import Navbar from "./Components/Navbar";
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 // import Footer from "./Components/Footer";
-// import ScrollProgress from "./Components/ScrollProgress";
+import ScrollProgress from "./Components/ScrollProgress";
 // import Stats from "./Components/Stats";
 // import Timeline from "./Components/Timeline";
 // import Cursor from "./Components/Cursor";
@@ -34,7 +34,7 @@ function App() {
   }
   return (
     <div className="bg-[#0a0a0a] text-white">
-      {/* <ScrollProgress />*/}
+       <ScrollProgress />
       {/* <Cursor /> */}
       <Navbar />
       {/* <SocialSidebar /> */}
