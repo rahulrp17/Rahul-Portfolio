@@ -1,6 +1,6 @@
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
-// import About from "./Components/About";
+import About from "./Components/About";
 // import Skills from "./Components/Skills";
 // import Projects from "./Components/Projects";
 // import Contact from "./Components/Contact";
@@ -15,7 +15,7 @@ import ScrollProgress from "./Components/ScrollProgress";
 import { useEffect, useState } from "react";
 import Loader from "./Components/Loader";
 import SocialSidebar from "./Components/SocialSideBar";
-// import BackToTop from "./Components/BackToTop";
+import BackToTop from "./Components/BackToTop";
 
 
 function App() {
@@ -39,9 +39,9 @@ function App() {
       <Navbar />
       <SocialSidebar /> 
       <Hero /> 
-      {/* <BackToTop /> */}
+      <BackToTop /> 
       {/* <Stats /> */}
-      {/* <About /> */}
+      <About /> 
       {/* <Skills /> */}
       {/* <Timeline /> */}
       {/* <Projects /> */}
