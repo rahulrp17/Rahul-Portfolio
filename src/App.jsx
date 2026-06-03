@@ -3,7 +3,7 @@ import Hero from "./Components/Hero";
 import About from "./Components/About";
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
-// import Contact from "./Components/Contact";
+import Contact from "./Components/Contact";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Components/Footer";
@@ -46,7 +46,7 @@ function App() {
       <Timeline /> 
       <Projects />
       <CTA /> 
-      {/* <Contact />   */}
+      <Contact />
       <ToastContainer position="top-right" autoClose={3000} /> 
       <Footer />
     </div>
