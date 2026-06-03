@@ -1,4 +1,4 @@
-// import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar";
 // import Hero from "./Components/Hero";
 // import About from "./Components/About";
 // import Skills from "./Components/Skills";
@@ -36,7 +36,7 @@ function App() {
     <div className="bg-[#0a0a0a] text-white">
       {/* <ScrollProgress />*/}
       {/* <Cursor /> */}
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <SocialSidebar /> */}
       {/* <Hero /> */}
       {/* <BackToTop /> */}
