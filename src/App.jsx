@@ -14,7 +14,7 @@ import ScrollProgress from "./Components/ScrollProgress";
 // import CTA from "./Components/CTA";
 import { useEffect, useState } from "react";
 import Loader from "./Components/Loader";
-// import SocialSidebar from "./Components/SocialSideBar";
+import SocialSidebar from "./Components/SocialSideBar";
 // import BackToTop from "./Components/BackToTop";
 
 
@@ -37,7 +37,7 @@ function App() {
        <ScrollProgress />
       {/* <Cursor /> */}
       <Navbar />
-      {/* <SocialSidebar /> */}
+      <SocialSidebar /> 
       {/* <Hero /> */}
       {/* <BackToTop /> */}
       {/* <Stats /> */}
