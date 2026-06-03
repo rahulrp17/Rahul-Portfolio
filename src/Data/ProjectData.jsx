@@ -1,0 +1,112 @@
+import cab from "../assets/projects/cab.webp";
+import food from "../assets/projects/food.webp";
+import weather from "../assets/projects/weather.webp";
+import portfolio from "../assets/projects/portfolio.webp";
+import authify from "../assets/projects/authify.webp";
+import todo from "../assets/projects/todo.webp";
+
+
+export const projects = [
+  {
+    title: "Cab Booking App",
+    category: "Full Stack",
+    image: cab,
+    featured: false,
+    description:
+      "A responsive cab booking platform with ride booking, authentication, and modern UI.",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    github: "https://github.com/rahulrp17/let-s-Go-Cab",
+    demo: "https://let-s-go-cab.onrender.com/",
+    features: [
+      "Ride Booking",
+      "Responsive Design",
+      "Modern UI",
+      "Authentication",
+    ],
+  },
+
+  {
+    title: "Food Delivery App",
+    category: "Full Stack",
+    image: food,
+    description:
+      "Food ordering application with menu browsing, cart management and responsive design.",
+    tech: ["React", "CSS", "Framer Motion", "Express js", "MongoDB"],
+    github: "https://github.com/rahulrp17/Food-Delivery",
+    demo: "https://food-delivery-frontend-ib75.onrender.com/",
+    features: [
+      "Food Ordering",
+      "Shopping Cart",
+      "Responsive Layout",
+      "Product Listing",
+    ],
+  },
+
+  {
+    title: "Three.js Portfolio Website",
+    category: "Frontend",
+    image: portfolio,
+    description:
+      "Modern animated portfolio built with React and Framer Motion.",
+    tech: ["React", "Framer Motion", "Three.js", "Tailwind"],
+    github: "https://github.com/rahulrp17/ThreeJs-Portfolio",
+    demo: "https://threejs-portfolio-oih3.onrender.com/",
+    features: [
+      "Animations",
+      "Responsive Design",
+      "Project Showcase",
+      "Contact Form",
+    ],
+  },
+  {
+    title: "Weather App",
+    category: "API",
+    image: weather,
+    description:
+      "Real-time weather forecasting app using API integration.",
+    tech: ["React", "API"],
+    github: "https://github.com/rahulrp17/Weather-App",
+    demo: "https://weather-app-cvzb.onrender.com/",
+    features: [
+      "Weather API",
+      "Live Updates",
+      "Location Search",
+      "Responsive UI",
+    ],
+  },
+
+
+  {
+    title: "Authify",
+    category: "full stack",
+    image: authify,
+    description:
+      "Authentication system featuring JWT login and registration.",
+    tech: ["React", "Tailwind", "Spring Boot"],
+    github: "https://github.com/rahulrp17/Authentication_System",
+    demo: "https://authentication-system-frontend-cukc.onrender.com/",
+    features: [
+      "JWT Authentication",
+      "Login",
+      "Registration",
+      "Protected Routes",
+    ],
+  },
+
+  {
+    title: "Todo App",
+    category: "Frontend",
+    image: todo,
+    description:
+      "Task management application with CRUD functionality.",
+    tech: ["React", "Tailwind"],
+    github: "https://github.com/rahulrp17/Todo_Applicaton",
+    demo: "https://todo-applicaton.onrender.com/",
+    features: [
+      "Add Tasks",
+      "Edit Tasks",
+      "Delete Tasks",
+      "Responsive UI",
+    ],
+  },
+];
