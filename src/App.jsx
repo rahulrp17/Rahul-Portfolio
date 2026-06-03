@@ -6,7 +6,7 @@ import Projects from "./Components/Projects";
 // import Contact from "./Components/Contact";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Footer from "./Components/Footer";
+import Footer from "./Components/Footer";
 import ScrollProgress from "./Components/ScrollProgress";
 // import Stats from "./Components/Stats";
 import Timeline from "./Components/Timeline";
@@ -48,7 +48,7 @@ function App() {
       <CTA /> 
       {/* <Contact />   */}
       <ToastContainer position="top-right" autoClose={3000} /> 
-      {/* <Footer />  */}
+      <Footer />
     </div>
   );
 }
