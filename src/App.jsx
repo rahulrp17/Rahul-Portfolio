@@ -1,5 +1,5 @@
 import Navbar from "./Components/Navbar";
-// import Hero from "./Components/Hero";
+import Hero from "./Components/Hero";
 // import About from "./Components/About";
 // import Skills from "./Components/Skills";
 // import Projects from "./Components/Projects";
@@ -38,7 +38,7 @@ function App() {
       {/* <Cursor /> */}
       <Navbar />
       <SocialSidebar /> 
-      {/* <Hero /> */}
+      <Hero /> 
       {/* <BackToTop /> */}
       {/* <Stats /> */}
       {/* <About /> */}
