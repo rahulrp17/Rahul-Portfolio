@@ -21,8 +21,8 @@ export default function Navbar() {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 w-full z-50"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className=" backdrop-blur-md bg-white/5 border border-white/10 rounded-full px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div className="w-full backdrop-blur-md bg-white/5 border border-white/10 rounded-full px-4 sm:px-6 py-3 flex items-center justify-between">
           {/* Logo */}
           <h1 className="text-2xl font-bold text-white">
             Rahul<span className="text-orange-500">.</span>
