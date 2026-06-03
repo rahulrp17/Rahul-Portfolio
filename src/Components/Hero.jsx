@@ -98,7 +98,7 @@ mx-auto
           {/* SOCIALS */}
           <div className="flex justify-center gap-2 mt-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/rahulrp17"
               target="_blank"
               rel="noreferrer"
               className="
@@ -116,7 +116,7 @@ mx-auto
             </a>
 
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/rahulrp4021"
               target="_blank"
               rel="noreferrer"
               className="
@@ -134,7 +134,7 @@ mx-auto
             </a>
 
             <a
-              href="https://instagram.com/yourusername"
+              href="https://www.instagram.com/_rahul._rp?igsh=MTFnZGo4YXJkN3V0cQ=="
               target="_blank"
               rel="noreferrer"
               className="
@@ -152,7 +152,7 @@ mx-auto
             </a>
 
             <a
-              href="mailto:your@email.com"
+              href="rahulrp4021@gmail.com"
               className="
       w-10 h-10
       rounded-xl
