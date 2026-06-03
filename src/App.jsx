@@ -34,21 +34,21 @@ function App() {
   }
   return (
     <div className="bg-[#0a0a0a] text-white">
-      {/* <ScrollProgress />
+      {/* <ScrollProgress />*/}
       {/* <Cursor /> */}
       {/* <Navbar /> */}
       {/* <SocialSidebar /> */}
       {/* <Hero /> */}
       {/* <BackToTop /> */}
       {/* <Stats /> */}
-      {/* <About />            */}
+      {/* <About /> */}
       {/* <Skills /> */}
       {/* <Timeline /> */}
       {/* <Projects /> */}
       {/* <CTA /> */}
       {/* <Contact /> */}
       {/* <ToastContainer position="top-right" autoClose={3000} /> */}
-      {/* <Footer /> */} */}
+      {/* <Footer /> */} 
     </div>
   );
 }
