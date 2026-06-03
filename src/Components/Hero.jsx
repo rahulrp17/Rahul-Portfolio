@@ -10,14 +10,15 @@ export default function Hero() {
       id="home"
       className="
      min-h-screen
-     flex
-     items-center
-     justify-center
-     px-8
-     lg:px-20
-     md:px-18
-     pt-24
-     pb-12
+flex
+items-center
+justify-center
+px-4
+sm:px-6
+lg:px-20
+pt-24
+pb-12
+overflow-hidden
    "
     >
       {" "}
@@ -47,9 +48,11 @@ border-white/10
 rounded-[30px]
 p-4
 text-center
-lg:max-w-[600px]
+w-full
+max-w-[360px]
 md:max-w-[500px]
-max-w-[400px]
+lg:max-w-[600px]
+mx-auto
 
 "
         >
@@ -63,6 +66,7 @@ max-w-[400px]
            max-w-[300px]
            object-contain
            objext-positiont-center
+            object-center
            mx-auto
            rounded-3xl
            border
