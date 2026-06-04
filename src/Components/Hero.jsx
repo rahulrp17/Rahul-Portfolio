@@ -152,7 +152,7 @@ mx-auto
             </a>
 
             <a
-              href="rahulrp4021@gmail.com"
+              href="mailto:rahulrp4021@gmail.com"
               className="
       w-10 h-10
       rounded-xl
