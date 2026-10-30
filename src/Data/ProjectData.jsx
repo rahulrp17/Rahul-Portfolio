@@ -6,6 +6,8 @@ import authify from "../assets/projects/authify.webp";
 import todo from "../assets/projects/todo.webp";
 import craftAI from "../assets/projects/craftAI.png";
 import AureliaStay from "../assets/projects/image.png";
+import rahul2 from "../assets/projects/rahul2.webp";
+
 export const projects = [
 
   {
@@ -101,6 +103,22 @@ export const projects = [
   },
 
   {
+    title: "Portfolio Website",
+    category: "Frontend",
+    image: rahul2,
+    description:
+      "A premium personal portfolio to showcase my skills, projects and achievements.",
+    tech: ["React", "Tailwind,", "Framer Motion"],
+    github: "https://github.com/rahulrp17/Rahul",
+    demo: "https://rahul-17-dev.vercel.app/",
+    features: [
+      "Modern Responsive Design",
+      "Project Showcase",
+      "Contact Form",
+    ],
+  },
+
+  {
     title: "Three.js Portfolio Website",
     category: "Frontend",
     image: portfolio,
@@ -116,6 +134,7 @@ export const projects = [
       "Contact Form",
     ],
   },
+  
   {
     title: "Weather App",
     category: "API",
