@@ -9,14 +9,20 @@ import AureliaStay from "../assets/projects/image.png";
 import rahul2 from "../assets/projects/rahul2.webp";
 
 export const projects = [
-
   {
     title: "AureliaStay Hotel Booking Website",
     category: "Full Stack",
     image: AureliaStay,
     description:
       "A secure and user-friendly hotel booking website with authentication and admin dashboard.",
-    tech: ["React", "Tailwind", "Framer Motion", "Express.js", "MongoDB", "JWT"],
+    tech: [
+      "React",
+      "Tailwind",
+      "Framer Motion",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+    ],
     github: "https://github.com/rahulrp17/AureliaStay",
     demo: "https://aureliastay.vercel.app/",
     features: [
@@ -38,7 +44,14 @@ export const projects = [
     featured: false,
     description:
       "A responsive cab booking platform with ride booking, live Tracking, and modern UI.",
-    tech: ["React", "Tailwind", "Framer Motion", "Express.js", "MongoDB", "Cloudinary",],
+    tech: [
+      "React",
+      "Tailwind",
+      "Framer Motion",
+      "Express.js",
+      "MongoDB",
+      "Cloudinary",
+    ],
     github: "https://github.com/rahulrp17/GenZRides",
     demo: "https://genzrides.vercel.app/",
     features: [
@@ -84,7 +97,6 @@ export const projects = [
     ],
   },
 
-
   {
     title: "Food Delivery App",
     category: "Full Stack",
@@ -111,10 +123,22 @@ export const projects = [
     tech: ["React", "Tailwind,", "Framer Motion"],
     github: "https://github.com/rahulrp17/Rahul",
     demo: "https://rahul-17-dev.vercel.app/",
+    features: ["Modern Responsive Design", "Project Showcase", "Contact Form"],
+  },
+
+    {
+    title: "Authify",
+    category: "full stack",
+    image: authify,
+    description: "Authentication system featuring JWT login and registration.",
+    tech: ["React", "Tailwind", "Spring Boot"],
+    github: "https://github.com/rahulrp17/Authify",
+    demo: "https://authify-for-security.vercel.app",
     features: [
-      "Modern Responsive Design",
-      "Project Showcase",
-      "Contact Form",
+      "JWT Authentication",
+      "Login",
+      "Registration",
+      "Protected Routes",
     ],
   },
 
@@ -134,7 +158,7 @@ export const projects = [
       "Contact Form",
     ],
   },
-  
+
   {
     title: "Weather App",
     category: "API",
@@ -151,21 +175,7 @@ export const projects = [
     ],
   },
 
-  {
-    title: "Authify",
-    category: "full stack",
-    image: authify,
-    description: "Authentication system featuring JWT login and registration.",
-    tech: ["React", "Tailwind", "Spring Boot"],
-    github: "https://github.com/rahulrp17/Authentication_System",
-    demo: "https://authentication-system-frontend-cukc.onrender.com/",
-    features: [
-      "JWT Authentication",
-      "Login",
-      "Registration",
-      "Protected Routes",
-    ],
-  },
+
 
   {
     title: "Todo App",
