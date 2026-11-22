@@ -81,8 +81,8 @@ export default function Hero({ onBookNow }) {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-5 pt-12 md:px-8 md:pt-28 lg:px-11 lg:pt-11">
-        <div className="grid flex-1 items-center gap-10 py-8 md:py-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16 lg:py-10!">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-5 md:px-8 lg:px-11 lg:pt-11">
+        <div className="grid flex-1 items-center gap-12 pb-8 md:pb-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16 lg:py-10!">
           <div className="hero-copy order-2 lg:order-1">
             <p className="inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-[7px] font-semibold uppercase tracking-[0.16em] text-white/60 backdrop-blur-md sm:gap-x-2.5 sm:px-3.5 sm:py-2 sm:text-[9px] sm:tracking-[0.2em]">
               <span className="relative flex h-1.5 w-1.5 shrink-0">
@@ -157,11 +157,11 @@ export default function Hero({ onBookNow }) {
             </p>
           </div>
 
-          <div className="hero-visual relative order-1 mx-auto w-full max-w-[330px] sm:max-w-[340px] md:max-w-[360px] lg:order-2 lg:max-w-[348px]">
+          <div className="hero-visual relative order-1 lg:order-2 lg:mx-auto lg:w-full lg:max-w-[348px]">
             <div className="hero-visual-glow" aria-hidden="true" />
 
-            <div className="glow-card relative rounded-[30px] border border-white/12 bg-[#100907]/60 p-2 shadow-[0_34px_100px_rgba(0,0,0,0.5)] backdrop-blur-sm">
-              <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02]">
+            <div className="glow-card relative flex h-full flex-col rounded-[30px] border border-white/12 bg-[#100907]/60 p-2 shadow-[0_34px_100px_rgba(0,0,0,0.5)] backdrop-blur-sm">
+              <div className="relative min-h-0 flex-1 overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02] lg:min-h-[auto] lg:flex-none">
                 <img
                   src="/preview.jpg"
                   width="450"
@@ -169,7 +169,7 @@ export default function Hero({ onBookNow }) {
                   alt="Portrait of Rahul"
                   fetchPriority="high"
                   decoding="async"
-                  className="aspect-[2.7/4] w-full object-cover object-top sm:aspect-[4.1/5]"
+                  className="h-full w-full object-cover object-top lg:aspect-[4.1/5]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b0706]/70 via-transparent to-transparent" />
               </div>

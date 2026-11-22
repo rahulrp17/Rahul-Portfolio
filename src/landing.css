@@ -173,6 +173,24 @@
   animation: rise 1s 0.24s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Stacked layout: the portrait card fills the whole first screen */
+@media (max-width: 1023px) {
+  .hero-visual {
+    width: auto;
+    max-width: none;
+    margin-top: 4.75rem;
+    margin-inline: -1.25rem;
+    height: calc(100vh - 4.75rem);
+    height: calc(100svh - 4.75rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-visual {
+    margin-inline: -2rem;
+  }
+}
+
 .hero-title {
   font-size: clamp(2.65rem, 7.4vw, 6.4rem);
   line-height: 0.88;
