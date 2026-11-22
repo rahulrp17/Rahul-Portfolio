@@ -1,180 +1,136 @@
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaArrowUp } from "react-icons/fa";
+import { NAV_LINKS, SOCIALS, EMAIL, AVAILABILITY } from "../Data/siteData";
 
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-
-} from "react-icons/fa";
+const SERVICES = ["Web design & UI", "Frontend development", "Full-stack builds"];
 
 export default function Footer() {
-  // const scrollToTop = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
-
   return (
-    <footer className="relative px-6 lg:px-20 py-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto">
+    <footer
+      id="site-footer"
+      className="relative overflow-hidden border-t border-white/10 bg-[#090504] px-5 py-12 md:px-8 lg:px-10 lg:py-16"
+    >
+      <div
+        className="pointer-events-none absolute -left-40 bottom-0 h-[360px] w-[360px] rounded-full bg-flame/[0.06] blur-[120px]"
+        aria-hidden="true"
+      />
 
-        {/* Top Section */}
-        <div className="grid md:grid-cols-3 gap-10">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center overflow-hidden select-none"
+      >
+        <span className="translate-y-[-2%] whitespace-nowrap bg-gradient-to-b from-white/[0.28] to-white/[0.05] bg-clip-text font-display text-[clamp(3.5rem,38vw,36rem)] uppercase leading-[0.72] tracking-[-0.01em] text-transparent">
+          Rahul
+        </span>
+      </div>
 
-          {/* Brand */}
+      <div className="relative z-10 mx-auto max-w-[1440px]">
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr_0.75fr_0.75fr]">
           <div>
-            <h2 className="text-3xl font-bold">
-              Rahul
-              <span className="text-orange-500">.</span>
-            </h2>
-
-            <p className="text-gray-400 mt-4 leading-relaxed">
-              Frontend Developer & React Developer
-              passionate about building modern web
-              applications and engaging user experiences.
+            <a href="#top" className="inline-flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-full border border-white/15 font-display text-sm text-white">
+                R
+              </span>
+              <span className="font-display text-xl uppercase tracking-[0.12em]">
+                Rahul<span className="text-flame">.</span>
+              </span>
+            </a>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">
+              Independent designer and developer building fast, expressive websites and web
+              apps. Strategy, design and code under one roof.
             </p>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="mt-5 inline-flex items-center gap-2 text-sm text-white/60 transition-colors duration-300 hover:text-flame"
+            >
+              <FaEnvelope className="h-3 w-3" />
+              {EMAIL}
+            </a>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
-              Quick Links
-            </h3>
-
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <a href="#home" className="hover:text-orange-500">
-                  Home
-                </a>
-              </li>
-
-              <li>
-                <a href="#about" className="hover:text-orange-500">
-                  About
-                </a>
-              </li>
-
-              <li>
-                <a href="#skills" className="hover:text-orange-500">
-                  Skills
-                </a>
-              </li>
-
-              <li>
-                <a href="#projects" className="hover:text-orange-500">
-                  Projects
-                </a>
-              </li>
-
-              <li>
-                <a href="#contact" className="hover:text-orange-500">
-                  Contact
-                </a>
-              </li>
-
-              <li>
-                <a href="#services" className="hover:text-orange-500">
-                  Services
-                </a>
-              </li>
-
-              
+            <h1 className="text-[15px] font-semibold  uppercase tracking-[0.24em] text-white">
+              Sitemap
+            </h1>
+            <ul className="mt-4 space-y-3">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-md text-white/55 transition-colors duration-300 hover:text-flame"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
-              Connect
+            <h3 className="text-[15px] font-semibold uppercase tracking-[0.24em] text-white">
+              Services
             </h3>
+            <ul className="mt-4 space-y-3">
+              {SERVICES.map((service) => (
+                <li key={service}>
+                  <a
+                    href="#services"
+                    className="text-md text-white/55 transition-colors duration-300 hover:text-flame"
+                  >
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/rahulrp17"
-                target="_blank"
-                rel="noreferrer"
-                className="
-                  w-12 h-12
-                  rounded-full
-                  bg-white/5
-                  flex items-center justify-center
-                  hover:bg-orange-500
-                  transition-all
-                "
-              >
-                <FaGithub />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/rahulrp4021"
-                target="_blank"
-                rel="noreferrer"
-                className="
-                  w-12 h-12
-                  rounded-full
-                  bg-white/5
-                  flex items-center justify-center
-                  hover:bg-orange-500
-                  transition-all
-                "
-              >
-                <FaLinkedin />
-              </a>
-
-              <a
-                href="mailto:rahulrp4021@gmail.com"
-                className="
-                  w-12 h-12
-                  rounded-full
-                  bg-white/5
-                  flex items-center justify-center
-                  hover:bg-orange-500
-                  transition-all
-                "
-              >
-                <FaEnvelope />
-              </a>
+          <div>
+            <h3 className="text-[15px] font-semibold uppercase tracking-[0.24em] text-white">
+              Elsewhere
+            </h3>
+            <div className="mt-4 flex gap-2">
+              {[
+                { href: SOCIALS.github, label: "GitHub", Icon: FaGithub },
+                { href: SOCIALS.linkedin, label: "LinkedIn", Icon: FaLinkedin },
+                { href: SOCIALS.instagram, label: "Instagram", Icon: FaInstagram },
+                { href: `mailto:${EMAIL}`, label: "Email", Icon: FaEnvelope },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto") ? undefined : "noreferrer"}
+                  aria-label={label}
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/60 text-white/80 transition-all duration-300 hover:border-flame hover:bg-flame hover:text-white"
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                </a>
+              ))}
             </div>
+            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/30 px-3 py-1.5 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/85">
+              <span className="h-1.5 w-1.5 rounded-full bg-flame" />
+              {AVAILABILITY}
+            </p>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-500 text-sm">
-            © 2026 Ragul. All Rights Reserved.
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[10px] uppercase tracking-[0.16em] text-white/90">
+            © {new Date().getFullYear()} Rahul. All rights reserved.
           </p>
-
-          <p className="text-gray-500 text-sm mt-3 md:mt-0">
-            Built with React + Tailwind CSS
-          </p>
+          <div className="flex items-center gap-5">
+            <p className="text-[10px] uppercase tracking-[0.16em] text-white/90">
+              Built with React + Tailwind
+            </p>
+            <a
+              href="#top"
+              aria-label="Back to top"
+              className="grid h-9 w-9 place-items-center rounded-full border border-white/75 text-white/70 transition-all duration-300 hover:border-flame hover:bg-flame hover:text-white"
+            >
+              <FaArrowUp className="h-3 w-3" />
+            </a>
+          </div>
         </div>
       </div>
-
-      {/* Scroll Top Button */}
-      {/* <motion.button
-        whileHover={{
-          scale: 1.1,
-          y: -3,
-        }}
-        onClick={scrollToTop}
-        className="
-          fixed
-          bottom-6
-          right-6
-          w-14
-          h-14
-          rounded-full
-          bg-orange-500
-          flex
-          items-center
-          justify-center
-          shadow-lg
-          hover:bg-orange-600
-          z-50
-        "
-      >
-        <FaArrowUp />
-      </motion.button> */}
     </footer>
   );
 }

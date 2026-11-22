@@ -8,79 +8,73 @@ import {
   FaPhone,
   FaGlobe,
 } from "react-icons/fa";
+import { WHATSAPP_NUMBER } from "../Data/siteData";
+
+const EMPTY_FORM = {
+  service: "",
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  budget: "",
+  timeline: "",
+  details: "",
+};
+
+const BUDGETS = ["₹5,000 - ₹10,000", "₹10,000 - ₹20,000", "₹20,000 - ₹40,000", "₹40,000+"];
+
+const TIMELINES = [
+  "Within 1 week",
+  "2–3 weeks",
+  "1 month",
+  "1–2 months",
+  "More than 2 months",
+  "Flexible",
+];
 
 export default function BookNowModal({ isOpen, onClose, selectedService }) {
   const [form, setForm] = useState({
+    ...EMPTY_FORM,
     service: selectedService || "",
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    budget: "",
-    timeline: "",
-    details: "",
   });
 
   useEffect(() => {
     if (!isOpen) return;
 
-    setForm({
-      service: selectedService || "",
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      budget: "",
-      timeline: "",
-      details: "",
-    });
-  }, [isOpen, selectedService]);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+    const handleEsc = (event) => {
+      if (event.key === "Escape") onClose();
     };
 
     window.addEventListener("keydown", handleEsc);
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleEsc);
     };
-  }, [onClose]);
+  }, [isOpen, onClose]);
 
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (event) => {
+    setForm((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
   };
 
-  const sendToWhatsApp = () => {
+  const sendToWhatsApp = (event) => {
+    event.preventDefault();
+
     if (!form.name || !form.email || !form.phone || !form.details) {
       alert("Please fill all required fields");
       return;
     }
 
-    const phoneNumber = "919342830199";
-
     const message = `
 🚀 *New Website Inquiry*
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 Service: ${form.service}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 Service: ${form.service || "Custom project"}
 
 👤 Name: ${form.name}
 
@@ -90,379 +84,233 @@ export default function BookNowModal({ isOpen, onClose, selectedService }) {
 
 🏢 Company: ${form.company || "N/A"}
 
-💰 Budget: ${form.budget || "Not Specified"}
+💰 Budget: ${form.budget || "Not specified"}
 
-⏳ Timeline: ${form.timeline || "Not Specified"}
+⏳ Timeline: ${form.timeline || "Not specified"}
 
-📝 Project Details:
+📝 Project details:
   ${form.details}
 `;
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
 
-    // Open WhatsApp
-    window.open(whatsappUrl, "_blank");
-
-    // Close Modal
     onClose();
-
-    // Reset Form
-    setForm({
-      service: selectedService || "",
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      budget: "",
-      timeline: "",
-      details: "",
-    });
-
-    // Scroll back to Services section
-    setTimeout(() => {
-      const section = document.getElementById("services");
-
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 300);
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          onClick={onClose}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="  fixed  inset-0  z-[999]  bg-black/70  backdrop-blur-md  flex  items-center  justify-center  p-4"
+          onClick={onClose}
+          className="fixed inset-0 z-[999] flex items-start justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md sm:items-center sm:p-6"
         >
           <motion.div
-            onClick={(e) => e.stopPropagation()}
-            initial={{
-              opacity: 0,
-              scale: 0.9,
-              y: 40,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              scale: 0.9,
-            }}
-            transition={{
-              duration: 0.3,
-            }}
-            className="  w-full  max-w-4xl  max-h-[90vh]  overflow-y-auto  rounded-3xl  bg-[#111]  border  border-white/10  shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="booking-modal-title"
+            onClick={(event) => event.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.96, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 24 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="relative my-auto w-full max-w-3xl overflow-hidden rounded-[28px] border border-white/12 bg-[#0d0705] shadow-[0_50px_140px_rgba(0,0,0,0.6)]"
           >
-            <div className="  sticky  top-0  z-10  bg-[#111]  border-b  border-white/10  p-6  flex  items-center  justify-between">
-              <div>
-                <h2 className="text-3xl font-bold">Book Your Project</h2>
+            <div
+              className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-flame/15 blur-[90px]"
+              aria-hidden="true"
+            />
 
-                <p className="text-gray-400 mt-1">
-                  Let's discuss your project requirements
+            <div className="relative flex items-start justify-between gap-4 border-b border-white/10 p-5 sm:p-7">
+              <div>
+                <p className="flex items-center gap-2.5 text-[8px] font-semibold uppercase tracking-[0.24em] text-flame">
+                  <span className="h-px w-6 bg-flame" />
+                  Start a project
+                </p>
+                <h2
+                  id="booking-modal-title"
+                  className="mt-3 font-display text-[clamp(1.6rem,4vw,2.4rem)] uppercase leading-none tracking-wide text-white"
+                >
+                  Book your project
+                </h2>
+                <p className="mt-2 max-w-md text-xs leading-relaxed text-white/45 sm:text-sm">
+                  Share a few details and I will continue the conversation on WhatsApp.
+                  Replies within 24 hours.
                 </p>
               </div>
 
               <button
+                type="button"
                 onClick={onClose}
-                className="  w-12  h-12  rounded-full  bg-white/5  hover:bg-amber-600 hover:text-white transition-colors duration-300  flex  items-center  justify-center cursor-pointer"
+                aria-label="Close booking form"
+                className="grid h-9 w-9 shrink-0 cursor-pointer place-items-center rounded-full border border-white/12 text-white/55 transition-all duration-300 hover:border-white hover:bg-white hover:text-ink"
               >
-                <FaTimes />
+                <FaTimes className="h-3.5 w-3.5" />
               </button>
             </div>
 
-            <div className="p-8">
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Selected Service */}
-                <div className="md:col-span-2">
-                  <label className="text-sm text-gray-400">
-                    Selected Service
-                  </label>
-
+            <form onSubmit={sendToWhatsApp} className="relative p-5 sm:p-7">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="block sm:col-span-2">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Selected service
+                  </span>
                   <input
                     type="text"
-                    value={form.service}
+                    value={form.service || "Custom project"}
                     readOnly
-                    className="  w-full  mt-2  p-4  rounded-2xl  bg-orange-500/10  border  border-orange-500/30  text-orange-400  cursor-not-allowed"
+                    className="w-full rounded-xl border border-flame/25 bg-flame/10 px-3.5 py-3 text-xs font-semibold text-flame outline-none"
                   />
-                </div>
+                </label>
 
-                {/* Name */}
-                <div>
-                  <label className="text-sm text-gray-400">Full Name *</label>
-
-                  <div className="relative mt-2">
-                    <FaUser className="absolute left-5 top-1/2 -translate-y-1/2 text-orange-500" />
-
+                <label className="block">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Full name *
+                  </span>
+                  <div className="relative">
+                    <FaUser className="pointer-events-none absolute left-3.5 top-1/2 h-3 w-3 -translate-y-1/2 text-flame/70" />
                     <input
                       type="text"
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder=""
-                      className="  w-full  pl-14  pr-4  py-4  rounded-2xl  bg-white/5  border  border-white/10  focus:border-orange-500  outline-none  transition"
+                      required
+                      autoComplete="name"
+                      placeholder="Your name"
+                      className="form-field pl-10"
                     />
                   </div>
-                </div>
+                </label>
 
-                {/* Email */}
-                <div>
-                  <label className="text-sm text-gray-400">
-                    Email Address *
-                  </label>
-
-                  <div className="relative mt-2">
-                    <FaEnvelope className="absolute left-5 top-1/2 -translate-y-1/2 text-orange-500" />
-
+                <label className="block">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Email address *
+                  </span>
+                  <div className="relative">
+                    <FaEnvelope className="pointer-events-none absolute left-3.5 top-1/2 h-3 w-3 -translate-y-1/2 text-flame/70" />
                     <input
                       type="email"
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder=""
-                      className="  w-full  pl-14  pr-4  py-4  rounded-2xl  bg-white/5  border  border-white/10  focus:border-orange-500  outline-none  transition"
+                      required
+                      autoComplete="email"
+                      placeholder="you@company.com"
+                      className="form-field pl-10"
                     />
                   </div>
-                </div>
+                </label>
 
-                {/* Phone */}
-                <div>
-                  <label className="text-sm text-gray-400">
-                    Phone Number *
-                  </label>
-
-                  <div className="relative mt-2">
-                    <FaPhone className="absolute left-5 top-1/2 -translate-y-1/2 text-orange-500" />
-
+                <label className="block">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Phone number *
+                  </span>
+                  <div className="relative">
+                    <FaPhone className="pointer-events-none absolute left-3.5 top-1/2 h-3 w-3 -translate-y-1/2 text-flame/70" />
                     <input
-                      type="text"
+                      type="tel"
                       name="phone"
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder=""
-                      className="  w-full  pl-14  pr-4  py-4  rounded-2xl  bg-white/5  border  border-white/10  focus:border-orange-500  outline-none"
+                      required
+                      autoComplete="tel"
+                      placeholder="+91 00000 00000"
+                      className="form-field pl-10"
                     />
                   </div>
-                </div>
+                </label>
 
-                {/* Company */}
-                <div>
-                  <label className="text-sm text-gray-400">
-                    Company / Brand
-                  </label>
-
-                  <div className="relative mt-2">
-                    <FaGlobe className="absolute left-5 top-1/2 -translate-y-1/2 text-orange-500" />
-
+                <label className="block">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Company / brand
+                  </span>
+                  <div className="relative">
+                    <FaGlobe className="pointer-events-none absolute left-3.5 top-1/2 h-3 w-3 -translate-y-1/2 text-flame/70" />
                     <input
                       type="text"
                       name="company"
                       value={form.company}
                       onChange={handleChange}
-                      placeholder=""
-                      className="  w-full  pl-14  pr-4  py-4  rounded-2xl  bg-white/5  border  border-white/10  focus:border-orange-500  outline-none"
+                      autoComplete="organization"
+                      placeholder="Optional"
+                      className="form-field pl-10"
                     />
                   </div>
-                </div>
+                </label>
 
-                {/* Budget */}
-                <div>
-                  <label className="text-sm text-gray-400">Budget</label>
-
+                <label className="block">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Budget
+                  </span>
                   <select
                     name="budget"
                     value={form.budget}
                     onChange={handleChange}
-                    className="  w-full  mt-2  px-5  py-4  rounded-2xl  bg-[#1b1b1b]  border  border-gray-700  text-white  outline-none  transition-all  duration-300  focus:border-orange-500  focus:ring-2  focus:ring-orange-500/30  cursor-pointer
-  "
+                    className="form-field cursor-pointer"
                   >
-                    <option value="" className="bg-[#1b1b1b] text-gray-400">
-                      Select Budget
-                    </option>
-
-                    <option
-                      value="₹5,000 - ₹10,000"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      ₹5,000 - ₹10,000
-                    </option>
-
-                    <option
-                      value="₹10,000 - ₹20,000"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      ₹10,000 - ₹20,000
-                    </option>
-
-                    <option
-                      value="₹20,000 - ₹40,000"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      ₹20,000 - ₹40,000
-                    </option>
-
-                    <option
-                      value="₹40,000+"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      ₹40,000+
-                    </option>
+                    <option value="">Select budget</option>
+                    {BUDGETS.map((budget) => (
+                      <option key={budget} value={budget}>
+                        {budget}
+                      </option>
+                    ))}
                   </select>
-                </div>
+                </label>
 
-                {/* Timeline */}
-                <div>
-                  <label className="text-sm text-gray-400">Timeline</label>
-
+                <label className="block">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Timeline
+                  </span>
                   <select
                     name="timeline"
                     value={form.timeline}
                     onChange={handleChange}
-                    className="  w-full  mt-2  px-5  py-4  rounded-2xl  bg-[#1b1b1b]  border  border-gray-700  text-white  outline-none  transition-all  duration-300  focus:border-orange-500  focus:ring-2  focus:ring-orange-500/30  cursor-pointer
-  "
+                    className="form-field cursor-pointer"
                   >
-                    <option value="" className="bg-[#1b1b1b] text-gray-400">
-                      Select Timeline
-                    </option>
-
-                    <option
-                      value="Within 1 Week"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      🚀 Within 1 Week
-                    </option>
-
-                    <option
-                      value="2-3 Weeks"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      ⚡ 2–3 Weeks
-                    </option>
-
-                    <option value="1 Month" className="bg-[#1b1b1b] text-white">
-                      📅 1 Month
-                    </option>
-
-                    <option
-                      value="1-2 Months"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      🗓️ 1–2 Months
-                    </option>
-
-                    <option
-                      value="More than 2 Months"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      ⏳ More than 2 Months
-                    </option>
-
-                    <option
-                      value="Flexible"
-                      className="bg-[#1b1b1b] text-white"
-                    >
-                      🤝 I'm Flexible
-                    </option>
+                    <option value="">Select timeline</option>
+                    {TIMELINES.map((timeline) => (
+                      <option key={timeline} value={timeline}>
+                        {timeline}
+                      </option>
+                    ))}
                   </select>
-                </div>
+                </label>
 
-                {/* Project Details */}
-                <div className="md:col-span-2">
-                  <label className="text-sm text-gray-400">
-                    Project Details *
-                  </label>
-
+                <label className="block sm:col-span-2">
+                  <span className="mb-2 block text-[8px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                    Project details *
+                  </span>
                   <textarea
-                    rows={6}
+                    rows={5}
                     name="details"
                     value={form.details}
                     onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    className="  w-full  mt-2  p-4  rounded-2xl  bg-white/5  border  border-white/10  focus:border-orange-500  outline-none  resize-none"
+                    required
+                    placeholder="A short brief, goals, timeline and anything useful to know..."
+                    className="form-field resize-none"
                   />
-                </div>
+                </label>
               </div>
 
-              {/* Bottom Action Area */}
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="
-                  mt-10
-                  pt-8
-                  border-t
-                  border-white/10
-                "
-              >
-                <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold">
-                      Ready to build your project?
-                    </h3>
-
-                    <p className="text-gray-400 mt-2">
-                      I'll review your requirements and reply within 24 hours.
-                    </p>
-                  </div>
-
-                  <motion.button
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 20px 40px rgba(34,197,94,.35)",
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                    onClick={sendToWhatsApp}
-                    className="  w-full  sm:w-auto  px-6  sm:px-8  py-3  sm:py-4  rounded-2xl  bg-green-500  hover:bg-green-600  text-white  font-semibold  text-base  sm:text-lg  flex  items-center  justify-center  gap-3  transition-all  duration-300  shadow-lg  hover:shadow-green-500/40"
-                  >
-                    <FaWhatsapp className="text-xl sm:text-2xl" />
-                    <span>Book Now via WhatsApp</span>
-                  </motion.button>
-                </div>
-
-                <div className="  mt-8  grid  grid-cols-1  md:grid-cols-3  gap-4">
-                  <div className="  rounded-2xl  bg-white/5  border  border-white/10  p-5  text-center">
-                    <h4 className="text-orange-500 text-2xl font-bold">⚡</h4>
-
-                    <p className="mt-3 font-semibold">Fast Response</p>
-
-                    <span className="text-gray-400 text-sm">
-                      Within 24 Hours
-                    </span>
-                  </div>
-
-                  <div className="  rounded-2xl  bg-white/5  border  border-white/10  p-5  text-center">
-                    <h4 className="text-orange-500 text-2xl font-bold">🔒</h4>
-
-                    <p className="mt-3 font-semibold">Secure Discussion</p>
-
-                    <span className="text-gray-400 text-sm">
-                      Your information is safe
-                    </span>
-                  </div>
-
-                  <div className="  rounded-2xl  bg-white/5  border  border-white/10  p-5  text-center ">
-                    <h4 className="text-orange-500 text-2xl font-bold">🚀</h4>
-
-                    <p className="mt-3 font-semibold">Premium Quality</p>
-
-                    <span className="text-gray-400 text-sm">
-                      Modern & Responsive Website
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+              <div className="mt-6 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                <p className="max-w-xs text-[9px] leading-relaxed text-white/30">
+                  This opens WhatsApp with your details pre-filled. Nothing is sent until you
+                  hit send there.
+                </p>
+                <button
+                  type="submit"
+                  className="group inline-flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-flame to-ember px-5 py-3.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_18px_45px_rgba(253,38,1,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_rgba(253,38,1,0.38)] sm:w-auto sm:min-w-[200px]"
+                >
+                  Send on WhatsApp
+                  <FaWhatsapp className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </form>
           </motion.div>
         </motion.div>
       )}

@@ -8,14 +8,14 @@ import About from "./Components/About";
 import Skills from "./Components/Skills";
 import Timeline from "./Components/Timeline";
 import Projects from "./Components/Projects";
-import Services from "./Components/Services";
 import WhyChooseMe from "./Components/WhyChooseMe";
+import Services from "./Components/Services";
+import Testimonials from "./Components/Testimonials";
 import CTA from "./Components/CTA";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 
 import ScrollProgress from "./Components/ScrollProgress";
-import SocialSidebar from "./Components/SocialSideBar";
 import BackToTop from "./Components/BackToTop";
 import Loader from "./Components/Loader";
 
@@ -31,10 +31,38 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 900);
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Reveal-on-scroll for the sections that use the shared `.reveal` class.
+  useEffect(() => {
+    if (loading) return;
+
+    const elements = Array.from(document.querySelectorAll(".reveal"));
+    if (!elements.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("in"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [loading]);
 
   // Open Booking Modal
   const openBooking = (service) => {
@@ -53,62 +81,34 @@ function App() {
   }
 
   return (
-    <div className="bg-[#0a0a0a] text-white overflow-x-hidden">
-      {/* Scroll Progress */}
+    <div className="min-h-screen overflow-x-hidden bg-ink text-white">
       <ScrollProgress />
-
-      {/* Navbar */}
       <Navbar />
-
-      {/* Social Sidebar */}
-      <SocialSidebar />
-
-      {/* Back To Top */}
       <BackToTop />
 
-      {/* Hero */}
-      <Hero />
+      <main>
+        <Hero onBookNow={openBooking} />
+        <About />
+        <Skills />
+        <Timeline />
+        <Projects />
+        <WhyChooseMe onBookNow={openBooking} />
+        <Services onBookNow={openBooking} />
+        <Testimonials />
+        <CTA onBookNow={openBooking} />
+        <Contact />
+      </main>
 
-      {/* About */}
-      <About />
-
-      {/* Skills */}
-      <Skills />
-
-      {/* Timeline */}
-      <Timeline />
-
-      {/* Projects */}
-      <Projects />
-
-      {/* Services */}
-      <Services onBookNow={openBooking} />
-
-      {/* Why Choose Me */}
-      <WhyChooseMe onBookNow={openBooking} />
-
-      {/* CTA */}
-      <CTA onBookNow={openBooking} />
-
-      {/* Contact */}
-      <Contact />
-
-      {/* Footer */}
       <Footer />
 
-      {/* Booking Modal */}
       <BookNowModal
+        key={isBookOpen ? selectedService || "open" : "closed"}
         isOpen={isBookOpen}
         onClose={closeBooking}
         selectedService={selectedService}
       />
 
-      {/* Toast */}
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        theme="dark"
-      />
+      <ToastContainer position="top-right" autoClose={3000} theme="dark" />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   FaReact,
   FaHtml5,
@@ -6,179 +5,110 @@ import {
   FaJs,
   FaGithub,
 } from "react-icons/fa";
-import { SiTailwindcss, SiFramer, SiRedux, SiExpress, SiMongodb} from "react-icons/si";
-// import { VscVscode } from "react-icons/vsc";
+import {
+  SiTailwindcss,
+  SiFramer,
+  SiRedux,
+  SiExpress,
+  SiMongodb,
+  SiNodedotjs,
+} from "react-icons/si";
 
-const skills = [
-  {
-    name: "HTML5",
-    level: 95,
-    icon: <FaHtml5 size={40} color="#E34F26" />,
-  },
-  {
-    name: "CSS3",
-    level: 90,
-    icon: <FaCss3Alt size={40} color="#1572B6" />,
-  },
-  {
-    name: "JavaScript",
-    level: 85,
-    icon: <FaJs size={40} color="#F7DF1E" />,
-  },
-  {
-    name: "React",
-    level: 90,
-    icon: <FaReact size={40} color="#61DAFB" />,
-  },
-  {
-    name:"Redux",
-    level: 80,
-    icon: <SiRedux size={40} color="#764ABC" />,
-  },
-  { 
-    name: "Tailwind CSS",
-    level: 95,
-    icon: <SiTailwindcss size={40} color="#06B6D4" />,
-  },
-  {
-    name: "GitHub",
-    level: 85,
-    icon: <FaGithub size={40} color="#ffffff" />,
-  },
-  {
-    name: "Framer Motion",
-    level: 80,
-    icon: <SiFramer size={40} color="#0055FF" />,
-  },
-  // {
-  //   name: "Spring Boot",
-  //   level: 75,
-  //   icon: <SiSpringboot size={40} color="#6DB33F" />,
-  // },
-  {
-    name:"Express",
-    level: 80,
-    icon: <SiExpress size={40} color="#0055FF" />,
-  },
-  {
-    name:"MongoDB",
-    level: 80,
-    icon: <SiMongodb size={40} color="#47A248" />,
-  }
-  // {
-  //   name: "VS Code",
-  //   level: 95,
-  //   icon: <VscVscode size={40} color="#007ACC" />,
-  // },
+const SKILLS = [
+  { name: "React", level: 90, icon: <FaReact />, color: "text-[#61DAFB]" },
+  { name: "JavaScript", level: 88, icon: <FaJs />, color: "text-[#F7DF1E]" },
+  { name: "Tailwind CSS", level: 95, icon: <SiTailwindcss />, color: "text-[#06B6D4]" },
+  { name: "HTML5", level: 95, icon: <FaHtml5 />, color: "text-[#E34F26]" },
+  { name: "CSS3", level: 90, icon: <FaCss3Alt />, color: "text-[#1572B6]" },
+  { name: "Node.js", level: 82, icon: <SiNodedotjs />, color: "text-[#5FA04E]" },
+  { name: "Express", level: 80, icon: <SiExpress />, color: "text-white" },
+  { name: "MongoDB", level: 80, icon: <SiMongodb />, color: "text-[#47A248]" },
+  { name: "Redux", level: 78, icon: <SiRedux />, color: "text-[#764ABC]" },
+  { name: "Framer Motion", level: 85, icon: <SiFramer />, color: "text-[#8B5CF6]" },
+  { name: "GitHub", level: 86, icon: <FaGithub />, color: "text-white" },
 ];
+
+const TOOLKIT = ["Figma", "Express", "REST APIs", "JWT", "Cloudinary", "Vite", "Git"];
 
 export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen px-6 lg:px-20 py-20 overflow-hidden"
+      className="relative overflow-hidden border-t border-white/5 bg-[#0e0907] py-20 md:py-28 lg:py-32"
     >
-      {/* Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <p className="text-orange-500 text-xl font-semibold">
-          My Skills
-        </p>
+      <div
+        className="pointer-events-none absolute -right-40 top-10 h-[440px] w-[440px] rounded-full bg-ember/[0.06] blur-[130px]"
+        aria-hidden="true"
+      />
 
-        <h2 className="text-4xl md:text-5xl font-bold mt-3">
-          Technologies I Work With
-        </h2>
-
-        <p className="text-gray-400 mt-4">
-          Building modern and responsive web applications.
-        </p>
-      </motion.div>
-
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={skill.name}
-            initial={{
-              opacity: 0,
-              x: index % 2 === 0 ? -80 : 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: false,
-              amount: 0.3,
-            }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.08,
-              type: "spring",
-              stiffness: 90,
-            }}
-            whileHover={{
-              y: -10,
-              scale: 1.03,
-            }}
-            className="
-              bg-white/5
-              backdrop-blur-md
-              border
-              border-white/10
-              rounded-2xl
-              p-6
-              hover:border-orange-500
-              hover:shadow-[0_0_25px_rgba(249,115,22,0.25)]
-              transition-all
-            "
+      <div className="relative mx-auto max-w-[1440px] px-5 md:px-8 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
+          <div className="reveal">
+            <p className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.3em] text-flame">
+              <span className="h-px w-8 bg-flame" /> 02 / Skills
+            </p>
+            <h2 className="section-title mt-5 font-display uppercase leading-[0.88] tracking-tight">
+              A sharp stack,
+              <br />
+              <span className="text-stroke">no filler</span>
+            </h2>
+          </div>
+          <p
+            className="reveal max-w-sm text-sm leading-relaxed text-white/50 lg:justify-self-end lg:pb-2"
+            style={{ "--d": "120ms" }}
           >
-            {/* Icon + Name */}
-            <div className="flex items-center gap-4 mb-5">
-              {skill.icon}
+            The tools I reach for when a project needs to look sharp, move smoothly and hold up
+            in production. Depth over a long list.
+          </p>
+        </div>
 
-              <div>
-                <h3 className="font-semibold text-lg">
-                  {skill.name}
-                </h3>
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          {SKILLS.map((skill, index) => (
+            <div
+              key={skill.name}
+              className="glow-card reveal group min-w-0 rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04] sm:p-5"
+              style={{ "--d": `${(index % 5) * 60}ms` }}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <span
+                  className={`grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-xl ${skill.color}`}
+                >
+                  {skill.icon}
+                </span>
+                <span className="font-display text-xs tracking-[0.12em] text-white/35">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
 
-                <p className="text-orange-500 text-sm">
-                  {skill.level}%
-                </p>
+              <h3 className="mt-5 truncate text-sm font-semibold text-white" title={skill.name}>
+                {skill.name}
+              </h3>
+              <div className="mt-3 flex items-center gap-2">
+                <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <span
+                    className="block h-full rounded-full bg-gradient-to-r from-flame to-ember"
+                    style={{ width: `${skill.level}%` }}
+                  />
+                </div>
+                <span className="text-[9px] font-semibold text-white/40">{skill.level}%</span>
               </div>
             </div>
+          ))}
+        </div>
 
-            {/* Progress Bar */}
-            <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{
-                  width: `${skill.level}%`,
-                }}
-                viewport={{
-                  once: false,
-                  amount: 0.3,
-                }}
-                transition={{
-                  duration: 1.2,
-                  ease: "easeOut",
-                }}
-                className="
-                  h-full
-                  bg-gradient-to-r
-                  from-orange-500
-                  to-orange-400
-                  rounded-full
-                "
-              />
-            </div>
-          </motion.div>
-        ))}
+        <div className="reveal mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/25">
+            Also comfortable with
+          </span>
+          {TOOLKIT.map((tool) => (
+            <span
+              key={tool}
+              className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/45"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

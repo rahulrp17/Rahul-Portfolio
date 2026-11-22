@@ -1,85 +1,99 @@
-import { motion } from "framer-motion";
+import { EMAIL } from "../Data/siteData";
+
+function Arrow({ className = "" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </svg>
+  );
+}
 
 export default function CTA({ onBookNow }) {
   return (
-    <section className="px-6 lg:px-20 lg:py-8 py-8">
-     <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.7 }}
-          viewport={{ once: true }}
-          className="mt-20 rounded-[32px] border border-white/10 bg-gradient-to-br from-orange-500/10 via-white/5 to-transparent backdrop-blur-xl p-8 sm:p-10 lg:p-14 text-center"
-        >
-          <span className="inline-block px-5 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 font-semibold text-sm">
-            Let's Work Together
-          </span>
-
-          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            Ready to Build Your
-            <span className="text-orange-500"> Dream Website?</span>
-          </h2>
-
-          <p className="max-w-2xl mx-auto mt-6 text-sm sm:text-base lg:text-lg text-gray-400 leading-8">
-            Whether you need a Portfolio, Business Website, Admin Dashboard,
-            E-Commerce Store or a Custom Web Application, I'm here to turn your
-            ideas into reality with modern design and clean development.
-          </p>
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 50px rgba(249,115,22,.35)",
-            }}
-            whileTap={{ scale: 0.96 }}
-            onClick={() => onBookNow("Custom Website Development")}
-            className="mt-10 w-full sm:w-auto px-8 sm:px-10 py-4 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base sm:text-lg shadow-xl hover:shadow-orange-500/40 transition-all duration-300"
-          >
-            🚀 Start Your Project
-          </motion.button>
-
-          {/* Trust Cards */}
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-12">
-            <motion.div
-              whileHover={{ y: -6 }}
-              className="rounded-2xl bg-white/5 border hover:bg-orange-400/30 border-white/10 p-6"
-            >
-              <div className="text-4xl mb-3">⚡</div>
-
-              <h4 className="text-lg font-semibold">Fast Delivery</h4>
-
-              <p className="text-gray-400 text-sm mt-2">
-                Quick turnaround with premium quality and attention to detail.
+    <section
+      id="start"
+      className="relative overflow-hidden border-t border-white/5 bg-[#0b0706] py-20 md:py-28 lg:py-32"
+    >
+      <div className="relative mx-auto max-w-[1440px] px-5 md:px-8 lg:px-10">
+        <div className="cta-panel reveal rounded-[30px] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
+          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14">
+            <div>
+              <p className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.3em] text-flame">
+                <span className="h-px w-8 bg-flame" /> 08 / Next step
               </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -6 }}
-              className="rounded-2xl bg-white/5 border border-white/10 p-6 hover:bg-blue-300/30"
-            >
-              <div className="text-4xl mb-3">💎</div>
-
-              <h4 className="text-lg font-semibold">Premium Design</h4>
-
-              <p className="text-gray-400 text-sm mt-2">
-                Beautiful UI with smooth animations and modern user experience.
+              <h2 className="cta-title mt-5 font-display uppercase">
+                Have something
+                <br />
+                worth building?
+                <br />
+                <span className="text-stroke">Let&apos;s make it real.</span>
+              </h2>
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/55 md:text-base">
+                Bring the idea, the half-finished plan or the site that has outgrown its
+                design. I will help you shape the next version and build it properly.
               </p>
-            </motion.div>
 
-            <motion.div
-              whileHover={{ y: -6 }}
-              className="rounded-2xl bg-white/5 border border-white/10 p-6 hover:bg-amber-200/30"
-            >
-              <div className="text-4xl mb-3">🤝</div>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-6 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                <span>Booking Q1 2027</span>
+                <span>Reply within 24h</span>
+                <span>Tamil Nadu · Worldwide</span>
+              </div>
+            </div>
 
-              <h4 className="text-lg font-semibold">Lifetime Support</h4>
+            <div className="glow-card rounded-[24px] border border-white/10 bg-[#0b0706]/55 p-5 backdrop-blur-md sm:p-6">
+              <div className="flex items-center justify-between gap-4">
+                <span className="inline-flex items-center gap-2 rounded-full border border-flame/25 bg-flame/10 px-3 py-1.5 text-[8px] font-semibold uppercase tracking-[0.16em] text-flame">
+                  <span className="h-1.5 w-1.5 rounded-full bg-flame" />
+                  Open for select work
+                </span>
+                <span className="font-display text-xs tracking-[0.16em] text-white/30">
+                  2027
+                </span>
+              </div>
 
-              <p className="text-gray-400 text-sm mt-2">
-                Continuous support, guidance and improvements after project
-                delivery.
+              <p className="mt-6 font-display text-[clamp(1.8rem,3vw,2.4rem)] uppercase leading-[1.02] text-white">
+                Tell me what
+                <br />
+                you want to ship.
               </p>
-            </motion.div>
+              <p className="mt-3 text-sm leading-relaxed text-white/50">
+                A short brief is enough. I will come back with scope, timeline and the right
+                next step.
+              </p>
+
+              <div className="mt-6 grid gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => onBookNow?.("Custom project")}
+                  className="group inline-flex w-full cursor-pointer items-center justify-between gap-3 rounded-full bg-gradient-to-r from-flame to-ember px-5 py-3.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_18px_45px_rgba(253,38,1,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_rgba(253,38,1,0.38)]"
+                >
+                  Start a project
+                  <span className="grid h-6 w-6 place-items-center rounded-full bg-white/15 transition-transform duration-300 group-hover:translate-x-0.5">
+                    <Arrow className="h-3.5 w-3.5" />
+                  </span>
+                </button>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="inline-flex w-full items-center justify-between gap-3 rounded-full border border-white/15 px-5 py-3.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white/65 transition-all duration-300 hover:border-white hover:text-white"
+                >
+                  <span className="truncate">{EMAIL}</span>
+                  <Arrow className="h-3.5 w-3.5 shrink-0" />
+                </a>
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

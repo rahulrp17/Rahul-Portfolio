@@ -1,234 +1,131 @@
-import { motion } from "framer-motion";
-
-const timelineData = [
+const TIMELINE = [
   {
     year: "2025",
     title: "Weather App",
+    tag: "API",
     description:
-      "Built a real-time weather application using React and OpenWeather API.",
+      "A real-time weather application built with React and a live weather API, focused on fast lookups and a clean mobile layout.",
   },
   {
     year: "2025",
     title: "Food Delivery App",
+    tag: "Full stack",
     description:
-      "Developed a responsive food ordering platform with cart functionality.",
+      "A responsive food ordering experience with menu browsing, cart management and a complete checkout flow.",
   },
   {
     year: "2025",
-    title: "Three.js Portfolio Website",
+    title: "Three.js Portfolio",
+    tag: "Creative",
     description:
-      "Created a modern animated portfolio using React and Framer Motion.",
+      "An experimental portfolio exploring 3D scenes, scroll-linked motion and interactive web storytelling.",
   },
   {
     year: "2026",
     title: "Authify",
+    tag: "Security",
     description:
-      "Built a JWT authentication system with secure login and registration.",
+      "A JWT authentication system with secure registration, login, protected routes and a production-minded structure.",
   },
   {
     year: "2026",
-    title:"CraftAI Handmade Marketplace",
-    description:"Developed a marketplace for handmade products using React and express.js with JWT authentication , Cloudinary uploads, WhatsApp ordering, and  AI chatbot assistant.",
+    title: "CraftAI Marketplace",
+    tag: "Full stack",
+    description:
+      "A handmade marketplace with Cloudinary uploads, WhatsApp ordering, an admin dashboard and an AI shopping assistant.",
   },
   {
     year: "2026",
     title: "AureliaStay",
+    tag: "Full stack",
     description:
-      "Developed a secure and user-friendly hotel booking website with authentication and admin dashboard.",
+      "A hotel booking platform with customer and admin dashboards, reviews, email notifications and secure authentication.",
   },
   {
     year: "2026",
-    title: "Cab Booking App",
+    title: "GenZRides",
+    tag: "Product",
     description:
-      "Developed a complete cab booking platform with responsive UI,live tracking, and admin dashboard,Driver Dashboard,Customer Dashboard.",
+      "A cab booking product with live ride tracking, driver tools, customer dashboards and a full admin control panel.",
   },
 ];
 
 export default function Timeline() {
   return (
     <section
-      id="timeline"
-      className="min-h-screen px-6 lg:px-20 py-20"
+      id="journey"
+      className="relative overflow-hidden border-t border-white/5 bg-[#0b0706] py-20 md:py-28 lg:py-32"
     >
-      {/* Heading */}
-      <div className="text-center mb-16">
-        <p className="text-orange-500 text-xl font-semibold">
-          Journey
-        </p>
+      <div
+        className="dot-grid pointer-events-none absolute inset-x-0 top-0 h-[420px] opacity-[0.1]"
+        aria-hidden="true"
+      />
 
-        <h2 className="text-4xl md:text-5xl font-bold mt-3">
-          My Development Timeline
-        </h2>
-
-        <p className="text-gray-400 mt-4">
-          Projects and milestones throughout my learning journey.
-        </p>
-      </div>
-
-      <div className="relative max-w-6xl mx-auto">
-        {/* Desktop Center Line */}
-        <div
-          className="
-            hidden md:block
-            absolute
-            left-1/2
-            top-0
-            -translate-x-1/2
-            w-1
-            h-full
-            bg-orange-500
-            rounded-full
-          "
-        />
-
-        {/* Mobile Line */}
-        <div
-          className="
-            md:hidden
-            absolute
-            left-2
-            top-0
-            w-1
-            h-full
-            bg-orange-500
-            rounded-full
-          "
-        />
-
-        {timelineData.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{
-              opacity: 0,
-              y: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: false,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
-            className="relative mb-12"
+      <div className="relative mx-auto max-w-[1440px] px-5 md:px-8 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
+          <div className="reveal">
+            <p className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.3em] text-flame">
+              <span className="h-px w-8 bg-flame" /> 03 / Journey
+            </p>
+            <h2 className="section-title mt-5 font-display uppercase leading-[0.88] tracking-tight">
+              The road
+              <br />
+              <span className="text-stroke">so far</span>
+            </h2>
+          </div>
+          <p
+            className="reveal max-w-sm text-sm leading-relaxed text-white/50 lg:justify-self-end lg:pb-2"
+            style={{ "--d": "120ms" }}
           >
-            {/* Desktop Layout */}
-            <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] items-center gap-8">
-              
-              {/* Left Side */}
-              <div>
-                {index % 2 === 0 && (
-                  <div
-                    className="
-                      bg-white/5
-                      backdrop-blur-md
-                      border border-white/10
-                      rounded-3xl
-                      p-6
-                      hover:border-orange-500
-                      hover:shadow-[0_0_25px_rgba(249,115,22,0.25)]
-                      transition-all
-                    "
-                  >
-                    <span className="text-orange-500 font-bold">
-                      {item.year}
-                    </span>
+            A short history of what I have built and what each project taught me. Every entry
+            shipped, not just started.
+          </p>
+        </div>
 
-                    <h3 className="text-2xl font-semibold mt-2 mb-2">
-                      {item.title}
-                    </h3>
+        <div className="relative mx-auto mt-12 max-w-5xl sm:mt-14">
+          <div
+            className="absolute bottom-0 left-[7px] top-0 w-px bg-gradient-to-b from-flame via-white/15 to-transparent sm:left-[9px]"
+            aria-hidden="true"
+          />
 
-                    <p className="text-gray-400">
-                      {item.description}
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Dot */}
-              <div className="flex justify-center">
-                <div
-                  className="
-                    w-5 h-5
-                    bg-orange-500
-                    rounded-full
-                    shadow-[0_0_20px_rgba(249,115,22,0.9)]
-                  "
-                />
-              </div>
-
-              {/* Right Side */}
-              <div>
-                {index % 2 !== 0 && (
-                  <div
-                    className="
-                      bg-white/5
-                      backdrop-blur-md
-                      border border-white/10
-                      rounded-3xl
-                      p-6
-                      hover:border-orange-500
-                      hover:shadow-[0_0_25px_rgba(249,115,22,0.25)]
-                      transition-all
-                    "
-                  >
-                    <span className="text-orange-500 font-bold">
-                      {item.year}
-                    </span>
-
-                    <h3 className="text-2xl font-semibold mt-2 mb-2">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-gray-400">
-                      {item.description}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Mobile Layout */}
-            <div className="md:hidden pl-12 relative">
-              <div
-                className="
-                  absolute
-                  left-0
-                  top-6
-                  w-5 h-5
-                  bg-orange-500
-                  rounded-full
-                  shadow-[0_0_20px_rgba(249,115,22,0.9)]
-                "
-              />
-
-              <div
-                className="
-                  bg-white/5
-                  backdrop-blur-md
-                  border border-white/10
-                  rounded-3xl
-                  p-6
-                "
-              >
-                <span className="text-orange-500 font-bold">
-                  {item.year}
+          <ol className="space-y-4">
+            {TIMELINE.map((item, index) => (
+              <li key={`${item.year}-${item.title}`} className="relative pl-9 sm:pl-14">
+                <span
+                  className="absolute left-0 top-6 grid h-[15px] w-[15px] place-items-center rounded-full border border-flame/40 bg-[#0b0706] sm:left-[2px]"
+                  aria-hidden="true"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-flame shadow-[0_0_12px_rgba(253,38,1,0.8)]" />
                 </span>
 
-                <h3 className="text-xl font-semibold mt-2 mb-2">
-                  {item.title}
-                </h3>
-
-                <p className="text-gray-400">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+                <article
+                  className="glow-card reveal group rounded-[22px] border border-white/10 bg-white/[0.025] p-5 transition-all duration-300 hover:bg-white/[0.04] sm:p-6"
+                  style={{ "--d": `${(index % 4) * 70}ms` }}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="font-display text-xs tracking-[0.18em] text-flame">
+                        {item.year}
+                      </span>
+                      <span className="rounded-full border border-white/10 px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/40">
+                        {item.tag}
+                      </span>
+                    </div>
+                    <span className="font-display text-[10px] tracking-[0.18em] text-white/20">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-display text-[clamp(1.35rem,2.4vw,1.85rem)] uppercase leading-none text-white/85 transition-colors duration-300 group-hover:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/50">
+                    {item.description}
+                  </p>
+                </article>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
