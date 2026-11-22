@@ -169,7 +169,7 @@ export default function Hero({ onBookNow }) {
                   alt="Portrait of Rahul"
                   fetchPriority="high"
                   decoding="async"
-                  className="aspect-[3.3/4] w-full object-cover object-top sm:aspect-[4.4/5]"
+                  className="aspect-[3/4] w-full object-cover object-top sm:aspect-[4.4/5]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b0706]/70 via-transparent to-transparent" />
               </div>

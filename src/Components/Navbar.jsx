@@ -48,9 +48,9 @@ export default function Navbar() {
           className="flex h-[62px] items-center justify-between gap-4 rounded-2xl border border-white/10 bg-[#0b0706]/75 px-4 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:px-5"
         >
           <a href="#top" className="group inline-flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 font-display text-sm tracking-[0.08em] text-white transition-colors duration-300 group-hover:border-flame group-hover:text-flame">
-              R
-            </span>
+            <img className="grid h-10 w-10 object-fit place-items-center rounded-full border border-white/15 font-display text-sm tracking-[0.08em] text-white transition-colors duration-300 group-hover:border-flame group-hover:text-flame"
+              src="/preview.jpg"
+            />
             <span className="font-display text-lg uppercase tracking-[0.12em] text-white">
               Rahul<span className="text-flame">.</span>
             </span>

@@ -23,15 +23,15 @@ export default function About() {
               <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-flame/15 via-transparent to-ember/10 blur-2xl" />
               <div className="glow-card relative overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] p-2">
                 <img
-                  src="/about-960.webp"
-                  srcSet="/about-480.webp 480w, /about-960.webp 960w"
+                  src="/image.png"
+                  srcSet="/image.png 480w, /image.png 960w"
                   sizes="(min-width: 1024px) 440px, 90vw"
                   width="960"
                   height="1100"
                   alt="Rahul working as a designer and developer"
                   loading="lazy"
                   decoding="async"
-                  className="aspect-[4/5] w-full rounded-[23px] object-cover object-center"
+                  className="aspect-[3.5/5] w-full rounded-[23px] object-cover object-center"
                 />
                 <div className="pointer-events-none absolute inset-2 rounded-[23px] ring-1 ring-inset ring-white/10" />
               </div>
