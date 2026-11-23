@@ -29,7 +29,7 @@ export default function CTA({ onBookNow }) {
           <div className="relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14">
             <div>
               <p className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.3em] text-flame">
-                <span className="h-px w-8 bg-flame" /> 08 / Next step
+                <span className="h-px w-8 bg-flame" /> 09 / Next step
               </p>
               <h2 className="cta-title mt-5 font-display uppercase">
                 Have something

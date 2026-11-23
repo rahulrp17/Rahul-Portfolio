@@ -62,7 +62,7 @@ export default function Contact() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="reveal">
             <p className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.3em] text-flame">
-              <span className="h-px w-8 bg-flame" /> 09 / Contact
+              <span className="h-px w-8 bg-flame" /> 10 / Contact
             </p>
             <h2 className="section-title mt-5 font-display uppercase leading-[0.88] tracking-tight">
               Let&apos;s make

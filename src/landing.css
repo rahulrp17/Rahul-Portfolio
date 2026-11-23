@@ -191,6 +191,15 @@
   }
 }
 
+/* Phones only: slightly smaller card (inset sides + a touch shorter) */
+@media (max-width: 767px) {
+  .hero-visual {
+    margin-inline: 0;
+    height: calc(100vh - 7rem);
+    height: calc(100svh - 7rem);
+  }
+}
+
 .hero-title {
   font-size: clamp(2.65rem, 7.4vw, 6.4rem);
   line-height: 0.88;

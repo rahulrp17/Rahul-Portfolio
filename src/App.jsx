@@ -8,6 +8,7 @@ import About from "./Components/About";
 import Skills from "./Components/Skills";
 import Timeline from "./Components/Timeline";
 import Projects from "./Components/Projects";
+import GitHub from "./Components/GitHub";
 import WhyChooseMe from "./Components/WhyChooseMe";
 import Services from "./Components/Services";
 import Testimonials from "./Components/Testimonials";
@@ -92,6 +93,7 @@ function App() {
         <Skills />
         <Timeline />
         <Projects />
+        <GitHub />
         <WhyChooseMe onBookNow={openBooking} />
         <Services onBookNow={openBooking} />
         <Testimonials />

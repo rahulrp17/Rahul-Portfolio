@@ -63,7 +63,7 @@ export default function Testimonials() {
         <div className="grid gap-8 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
           <div className="reveal">
             <p className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.3em] text-flame">
-              <span className="h-px w-8 bg-flame" /> 07 / Kind words
+              <span className="h-px w-8 bg-flame" /> 08 / Kind words
             </p>
             <h2 className="mt-5 font-display text-[clamp(2.75rem,6.5vw,5.75rem)] uppercase leading-[0.88] tracking-tight">
               Loved by
