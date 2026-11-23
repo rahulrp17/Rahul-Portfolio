@@ -26,10 +26,16 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-[1440px]">
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr_0.75fr_0.75fr]">
           <div>
-            <a href="#top" className="inline-flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-white/15 font-display text-sm text-white">
-                R
-              </span>
+            <a href="#top" className="group inline-flex items-center gap-3">
+              <img
+                src="/preview.jpg"
+                alt="Rahul"
+                width="80"
+                height="80"
+                loading="lazy"
+                decoding="async"
+                className="h-10 w-10 shrink-0 rounded-full border border-white/15 object-cover object-[50%_20%] transition-colors duration-300 group-hover:border-flame"
+              />
               <span className="font-display text-xl uppercase tracking-[0.12em]">
                 Rahul<span className="text-flame">.</span>
               </span>
